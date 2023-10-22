@@ -1,0 +1,82 @@
+crear indicies en las tablas
+
+CREATE INDEX index_students ON TABLE students(id) 
+AS 'org.apache.hadoop.hive.ql.index.compact.CompactIndexHandler' 
+WITH DEFERRED REBUILD ;
+
+
+ALTER INDEX index_name ON table_name [PARTITION partition_spec] REBUILD;
+
+ALTER INDEX index_students ON students REBUILD; 
+
+
+DROP INDEX [IF EXISTS] index_name ON table_name;
+
+DROP INDEX IF EXISTS index_students ON students; 
+
+-----------------------------------------------------------------------------
+
+vamos a crear indices para las tablas:
+
+calendario
+
+CREATE INDEX index_calendario ON TABLE calendario(idfecha)
+AS 'org.apache.hadoop.hive.ql.index.compact.CompactIndexHandler'
+WITH DEFERRED REBUILD;
+
+ahora lo borramos
+
+DROP INDEX IF EXISTS index_calendario ON calendario;
+
+
+creamos inidces en la tabla cliente
+
+CREATE INDEX index_cliente ON TABLE cliente(idcliente)
+AS 'org.apache.hadoop.hive.ql.index.compact.CompactIndexHandler'
+WITH DEFERRED REBUILD;
+
+
+creamos indices en la tabla venta
+
+CREATE INDEX index_venta ON TABLE venta(idventa)
+AS 'org.apache.hadoop.hive.ql.index.compact.CompactIndexHandler'
+WITH DEFERRED REBUILD;
+
+
+creamos indiices en la tabla sucursal
+
+CREATE INDEX index_sucursal ON TABLE sucursal(idsucursal)
+AS 'org.apache.hadoop.hive.ql.index.compact.CompactIndexHandler'
+WITH DEFERRED REBUILD;
+
+ahora ALTER INDEX index_name ON table_name [PARTITION partition_spec] REBUILD;
+
+ALTER INDEX index_sucursal ON sucursal REBUILD; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,223 @@
+CREATE EXTERNAL TABLE IF NOT EXISTS compra (
+  IdCompra INTEGER,
+  Fecha DATE,
+  IdProducto INTEGER,
+  Cantidad INTEGER,
+  Precio FLOAT,
+  IdProveedor INTEGER
+)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+    'separatorChar'=',',
+    'skip.header.line.count'='1'
+)
+LOCATION '/data/compra';
+
+-----------------------------
+
+CREATE EXTERNAL TABLE IF NOT EXISTS calendario (
+  IdFecha INTEGER,
+  Fecha DATE,
+  Anio INTEGER,
+  Mes INTEGER,
+  Dia INTEGER,
+  Trimestre INTEGER,
+  Semana INTEGER,
+  Dia_Nombre VARCHAR(25),
+  Mes_Nombre VARCHAR(25)
+)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+    'separatorChar'=',',
+    'skip.header.line.count'='1'
+)
+LOCATION '/data/calendario';
+
+
+----------------------------------------------------
+
+CREATE EXTERNAL TABLE IF NOT EXISTS canaldeventa (
+  Codigo INTEGER,
+  Descripcion VARCHAR(25)
+)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+    'separatorChar'=',',
+    'skip.header.line.count'='1'
+)
+LOCATION '/data/canaldeventa';
+
+
+------------------------------------------------------------
+
+CREATE EXTERNAL TABLE IF NOT EXISTS cliente (
+  IdCliente INTEGER,
+  Provincia VARCHAR(50),
+  Nombre_y_Apellido VARCHAR(100),
+  Domicilio VARCHAR(80),
+  Telefono VARCHAR(25),
+  Edad INTEGER,
+  Localidad VARCHAR(50),
+  X VARCHAR(50),
+  Y VARCHAR(50)
+)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+    'separatorChar'=';',
+    'skip.header.line.count'='1'
+)
+LOCATION '/data/cliente';
+
+----------------------------------------------------------------
+
+CREATE EXTERNAL TABLE IF NOT EXISTS empleado (
+  IdEmpleado INTEGER,
+  Apellido VARCHAR(50),
+  Nombre VARCHAR(50),
+  Sucursal VARCHAR(30),
+  Sector VARCHAR(30),
+  Cargo VARCHAR(30),
+  Salario VARCHAR(30)
+)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+    'separatorChar'=';',
+    'skip.header.line.count'='1'
+)
+LOCATION '/data/empleado';
+
+
+-----------------------------------------------------------------------------
+
+CREATE EXTERNAL TABLE IF NOT EXISTS gasto (
+  IdGasto INTEGER,
+  IdSucursal INTEGER,
+  IdToipoGasto INTEGER,
+  Fecha DATE,
+  Monto FLOAT
+)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+    'separatorChar'=',',
+    'skip.header.line.count'='1'
+)
+LOCATION '/data/gasto';
+
+
+---------------------------------------------------------------
+
+CREATE EXTERNAL TABLE IF NOT EXISTS producto (
+  IdPorducto INTEGER,
+  Concepto VARCHAR(100),
+  Tipo VARCHAR(50),
+  Precio FLOAT
+)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+    'separatorChar'=';',
+    'skip.header.line.count'='1'
+)
+LOCATION '/data/producto';
+
+-----------------------------------------------------------------
+
+CREATE EXTERNAL TABLE IF NOT EXISTS proveedor (
+  IdProveedor INTEGER,
+  Nombre VARCHAR(50),
+  Direccion VARCHAR(50),
+  Ciudad VARCHAR(50),
+  Estado VARCHAR(50),
+  Pais VARCHAR(50),
+  Departamento VARCHAR(50)
+)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+    'separatorChar'=',',
+    'skip.header.line.count'='1'
+)
+LOCATION '/data/proveedor';
+
+
+---------------------------------------------------------------
+
+CREATE EXTERNAL TABLE IF NOT EXISTS sucursal (
+  IdSucursal INTEGER,
+  Sucursal VARCHAR(50),
+  Direccion VARCHAR(50),
+  Localidad VARCHAR(50),
+  Provincia VARCHAR(50),
+  Latitud VARCHAR(50),
+  Longitud VARCHAR(50)
+)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+    'separatorChar'=';',
+    'skip.header.line.count'='1'
+)
+LOCATION '/data/sucursal';
+
+-----------------------------------------------------------------
+
+CREATE EXTERNAL TABLE IF NOT EXISTS tipodegasto (
+  IdTipoGasto INTEGER,
+  Descripcion VARCHAR(25),
+  Monto_Aproximado INTEGER
+)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+    'separatorChar'=',',
+    'skip.header.line.count'='1'
+)
+LOCATION '/data/tipodegasto';
+
+------------------------------------------------------------------
+
+CREATE EXTERNAL TABLE IF NOT EXISTS venta (
+  IdVenta INTEGER,
+  Fecha DATE,
+  Fecha_Entrega DATE,
+  IdCanal INTEGER,
+  IdCliente INTEGER,
+  IdSucursal INTEGER,
+  IdEmpleado INTEGER,
+  IdProducto INTEGER,
+  Precio FLOAT,
+  Cantidad INTEGER
+)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+    'separatorChar'=',',
+    'skip.header.line.count'='1'
+)
+LOCATION '/data/venta';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
