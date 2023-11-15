@@ -1,0 +1,13 @@
+Practica Integradora
+
+En esta practica se estara trabajando en el entorno docker con las siguentes implementaciones:
+
+- Spark
+- Hive
+- HBase
+- MongoDB
+- Neo4J
+- Zeppelin
+- Kafka
+
+para ver la resolucion del proyecto dirigirse a : https://github.com/Frombini/DS-M4-Herramientas_Big_Data/blob/main/resolucion_proyecto_integrador.ipynb
